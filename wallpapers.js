@@ -29,11 +29,11 @@
 
 const WALLPAPERS = [
   {
-    title: "Neon Rain",
-    anime: "Sample — Cyber City",
-    category: "Cyberpunk",
-    image: "https://picsum.photos/seed/neonrain/1080/1920",
-    thumb: "https://picsum.photos/seed/neonrain/400/711",
+    title: “Chainsaw Devil",
+    anime: "Chainsaw Man",
+    category: "Chainsaw Man",
+    image: "https://ik.imagekit.io/Stick/a9adbb5e-2500-4e17-b0aa-e0a28444eeaf.png",
+    thumb: "https://ik.imagekit.io/Stick/a9adbb5e-2500-4e17-b0aa-e0a28444eeaf.png",
     featured: true
   },
   {
