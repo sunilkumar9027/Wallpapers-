@@ -29,7 +29,7 @@
 
 const WALLPAPERS = [
   {
-    title: “Chainsaw Devil",
+    title: "Chainsaw Devil",
     anime: "Chainsaw Man",
     category: "Chainsaw Man",
     image: "https://ik.imagekit.io/Stick/a9adbb5e-2500-4e17-b0aa-e0a28444eeaf.png",
