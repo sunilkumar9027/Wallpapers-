@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lockframe — Anime Wallpapers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0A0A12;
+    --bg-panel: #14131F;
+    --line: #26243A;
+    --text: #F3F1FA;
+    --muted: #8B87A3;
+    --pink: #FF4D6D;
+    --violet: #7B61FF;
+    --radius: 18px;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  a{ color: inherit; text-decoration: none; }
+
+  /* ambient glow background */
+  .glow{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(600px circle at 15% 10%, rgba(123,97,255,0.16), transparent 60%),
+      radial-gradient(500px circle at 85% 30%, rgba(255,77,109,0.14), transparent 60%);
+  }
+
+  header{
+    position: relative;
+    z-index: 2;
+    padding: 28px 6vw 8px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+  }
+  .brand{
+    font-family:'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .brand .dot{
+    width: 8px; height:8px; border-radius:50%;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    box-shadow: 0 0 12px rgba(255,77,109,0.7);
+  }
+  .brand-sub{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display:block;
+    margin-top: 2px;
+  }
+  .ig-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: border-color .2s, color .2s;
+  }
+  .ig-link:hover{ border-color: var(--pink); color: var(--text); }
+
+  /* HERO */
+  .hero{
+    position: relative;
+    z-index: 2;
+    padding: 8vh 6vw 6vh;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 4vw;
+  }
+  .hero h1{
+    font-family:'Sora', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 em{
+    font-style: normal;
+    background: linear-gradient(120deg, var(--pink), var(--violet));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p{
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 42ch;
+    line-height: 1.6;
+  }
+  .hero-tags{
+    margin-top: 26px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .hero-tags span{
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  /* phone mockup — signature element */
+  .phone-stage{
+    position: relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height: 420px;
+  }
+  .phone{
+    position:relative;
+    width: 220px;
+    height: 460px;
+    border-radius: 34px;
+    border: 6px solid #1c1a2b;
+    background: #000;
+    overflow:hidden;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.04),
+      0 30px 80px -20px rgba(0,0,0,0.8);
+    animation: float 5s ease-in-out infinite;
+  }
+  .phone::after{
+    content:'';
+    position:absolute;
+    top: 14px; left:50%;
+    transform: translateX(-50%);
+    width: 70px; height: 18px;
+    background: #000;
+    border-radius: 10px;
+    z-index: 3;
+  }
+  .phone img{
+    width:100%; height:100%; object-fit: cover;
+    display:block;
+  }
+  .phone-glow{
+    position: absolute;
+    width: 260px; height: 500px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.5;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    animation: float 5s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(-14px); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .phone, .phone-glow{ animation: none; }
+  }
+
+  /* FILTERS */
+  .filters{
+    position: relative;
+    z-index: 2;
+    padding: 0 6vw 20px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .chip{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    cursor: pointer;
+    background: transparent;
+    transition: all .18s ease;
+  }
+  .chip:hover{ color: var(--text); border-color: var(--muted); }
+  .chip.active{
+    color: #0A0A12;
+    background: linear-gradient(120deg, var(--pink), var(--violet));
+    border-color: transparent;
+    font-weight: 600;
+  }
+
+  /* GRID */
+  .grid{
+    position: relative;
+    z-index: 2;
+    padding: 10px 6vw 10vh;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 28px;
+  }
+  .card{
+    position: relative;
+  }
+  .card-frame{
+    position: relative;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 26px;
+    border: 5px solid #1c1a2b;
+    background: var(--bg-panel);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.03);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card-frame::after{
+    content:'';
+    position:absolute;
+    top: 9px; left:50%;
+    transform: translateX(-50%);
+    width: 46px; height: 11px;
+    background: #000;
+    border-radius: 8px;
+    z-index: 3;
+  }
+  .card-frame img{
+    width: 100%; height: 100%; object-fit: cover; display:block;
+  }
+  .card:hover .card-frame{
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -18px rgba(123,97,255,0.35);
+  }
+  .card-meta{
+    margin-top: 12px;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .card-title{
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .card-sub{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .dl-btn{
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: border-color .2s, background .2s;
+  }
+  .dl-btn:hover{
+    border-color: transparent;
+    background: linear-gradient(120deg, var(--pink), var(--violet));
+  }
+  .dl-btn svg{ width: 15px; height:15px; }
+
+  .empty{
+    text-align:center;
+    color: var(--muted);
+    padding: 8vh 0;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    display: none;
+  }
+
+  footer{
+    position: relative;
+    z-index: 2;
+    padding: 5vh 6vw 6vh;
+    border-top: 1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 860px){
+    .hero{ grid-template-columns: 1fr; }
+    .phone-stage{ order: -1; min-height: 320px; }
+    .phone{ width: 170px; height: 350px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<header>
+  <div class="brand">
+    <span class="dot"></span>
+    <div>
+      Lockframe
+      <span class="brand-sub">4K anime wallpapers</span>
+    </div>
+  </div>
+  <a class="ig-link" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener">@YOUR_HANDLE ↗</a>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Your lock screen, <em>animated</em> right.</h1>
+    <p>True 4K wallpapers pulled from the shows worth staring at. Tap any frame to download the full-resolution file — no compression, no watermark, no signup.</p>
+    <div class="hero-tags">
+      <span>3840 × 2160</span>
+      <span>PNG / JPG</span>
+      <span>Updated weekly</span>
+    </div>
+  </div>
+  <div class="phone-stage">
+    <div class="phone-glow"></div>
+    <div class="phone">
+      <img id="heroImg" src="" alt="Featured wallpaper">
+    </div>
+  </div>
+</section>
+
+<div class="filters" id="filters"></div>
+
+<section class="grid" id="grid"></section>
+<p class="empty" id="emptyState">No wallpapers in this category yet — add some in wallpapers.js</p>
+
+<footer>
+  <span>Lockframe — built for fans, by a fan.</span>
+  <span>Full res, always free.</span>
+</footer>
+
+<script src="wallpapers.js"></script>
+<script>
+  const grid = document.getElementById('grid');
+  const filtersEl = document.getElementById('filters');
+  const emptyState = document.getElementById('emptyState');
+  const heroImg = document.getElementById('heroImg');
+
+  const categories = ['All', ...new Set(WALLPAPERS.map(w => w.category))];
+  let activeCategory = 'All';
+
+  function iconSVG(){
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12"></path><path d="M6 11l6 6 6-6"></path><path d="M5 21h14"></path>
+    </svg>`;
+  }
+
+  function renderFilters(){
+    filtersEl.innerHTML = categories.map(cat =>
+      `<button class="chip ${cat === activeCategory ? 'active' : ''}" data-cat="${cat}">${cat}</button>`
+    ).join('');
+    filtersEl.querySelectorAll('.chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.cat;
+        renderFilters();
+        renderGrid();
+      });
+    });
+  }
+
+  function renderGrid(){
+    const items = activeCategory === 'All'
+      ? WALLPAPERS
+      : WALLPAPERS.filter(w => w.category === activeCategory);
+
+    grid.innerHTML = items.map(w => `
+      <div class="card">
+        <div class="card-frame">
+          <img src="${w.thumb || w.image}" alt="${w.title}" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-title">${w.title}</div>
+            <div class="card-sub">${w.anime}</div>
+          </div>
+          <a class="dl-btn" href="${w.image}" download title="Download 4K">${iconSVG()}</a>
+        </div>
+      </div>
+    `).join('');
+
+    emptyState.style.display = items.length ? 'none' : 'block';
+  }
+
+  if (WALLPAPERS.length){
+    heroImg.src = (WALLPAPERS.find(w => w.featured) || WALLPAPERS[0]).image;
+  }
+
+  renderFilters();
+  renderGrid();
+</script>
+
+</body>
+</html>
