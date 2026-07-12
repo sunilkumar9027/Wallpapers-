@@ -56,5 +56,6 @@ const WALLPAPERS = [
     category: "Chainsaw Man",
     image: "https://ik.imagekit.io/Stick/37d80440-5a7b-481f-86ee-f5e371e01927.png?updatedAt=1783705036621",
     thumb: "https://ik.imagekit.io/Stick/37d80440-5a7b-481f-86ee-f5e371e01927.png?updatedAt=1783705036621"
-  },
+  }
+];
     
