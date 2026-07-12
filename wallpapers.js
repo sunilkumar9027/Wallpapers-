@@ -37,38 +37,24 @@ const WALLPAPERS = [
     featured: true
   },
   {
-    title: "Sakura Drift",
-    anime: "Sample — Spring Arc",
-    category: "Studio Ghibli",
-    image: "https://picsum.photos/seed/sakuradrift/1080/1920",
-    thumb: "https://picsum.photos/seed/sakuradrift/400/711"
+    title: "Reze",
+    anime: "Chainsaw Man",
+    category: "Chainsaw Man",
+    image: "https://ik.imagekit.io/Stick/300d7079-35c2-4077-940d-4482b9fd1b0e.png",
+    thumb: "https://ik.imagekit.io/Stick/300d7079-35c2-4077-940d-4482b9fd1b0e.png"
   },
   {
-    title: "Storm Blade",
-    anime: "Sample — Shonen Saga",
-    category: "Shonen",
-    image: "https://picsum.photos/seed/stormblade/1080/1920",
-    thumb: "https://picsum.photos/seed/stormblade/400/711"
+    title: "Power",
+    anime: "Chainsaw Man",
+    category: "Chainsaw Man",
+    image: "https://ik.imagekit.io/Stick/53fd38ad-1988-4958-9387-e83a54fd0e61.png",
+    thumb: "https://ik.imagekit.io/Stick/53fd38ad-1988-4958-9387-e83a54fd0e61.png"
   },
   {
-    title: "Midnight Circuit",
-    anime: "Sample — Cyber City",
-    category: "Cyberpunk",
-    image: "https://picsum.photos/seed/midnightcircuit/1080/1920",
-    thumb: "https://picsum.photos/seed/midnightcircuit/400/711"
+    title: "Makima",
+    anime: "Chainsaw Man",
+    category: "Chainsaw Man",
+    image: "https://ik.imagekit.io/Stick/37d80440-5a7b-481f-86ee-f5e371e01927.png?updatedAt=1783705036621",
+    thumb: "https://ik.imagekit.io/Stick/37d80440-5a7b-481f-86ee-f5e371e01927.png?updatedAt=1783705036621"
   },
-  {
-    title: "Quiet Valley",
-    anime: "Sample — Spring Arc",
-    category: "Studio Ghibli",
-    image: "https://picsum.photos/seed/quietvalley/1080/1920",
-    thumb: "https://picsum.photos/seed/quietvalley/400/711"
-  },
-  {
-    title: "Last Stand",
-    anime: "Sample — Shonen Saga",
-    category: "Shonen",
-    image: "https://picsum.photos/seed/laststand/1080/1920",
-    thumb: "https://picsum.photos/seed/laststand/400/711"
-  }
-];
+    
