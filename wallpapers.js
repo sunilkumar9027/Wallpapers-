@@ -56,6 +56,62 @@ const WALLPAPERS = [
     category: "Chainsaw Man",
     image: "https://ik.imagekit.io/Stick/37d80440-5a7b-481f-86ee-f5e371e01927.png?updatedAt=1783705036621",
     thumb: "https://ik.imagekit.io/Stick/37d80440-5a7b-481f-86ee-f5e371e01927.png?updatedAt=1783705036621"
-  }
+  },
+  {
+    title: "Itachi Uchiha",
+    anime: "Naruto",
+    category: "Naruto",
+    image: "https://ik.imagekit.io/Stick/999f8690-0f23-4d8c-a07a-7a00e35290a9_waifu2x_art_noise1_scale.png",
+    thumb: "https://ik.imagekit.io/Stick/999f8690-0f23-4d8c-a07a-7a00e35290a9_waifu2x_art_noise1_scale.png"
+  },
+  {
+    title: "Naruto & Sasuke",
+    anime: "Naruto",
+    category: "Naruto",
+    image: "https://ik.imagekit.io/Stick/b8806b9b-988e-499b-895f-a04f4a8cc87d.png",
+    thumb: "https://ik.imagekit.io/Stick/b8806b9b-988e-499b-895f-a04f4a8cc87d.png"
+  },
+  {
+    title: "Hinata Hyuga",
+    anime: "Naruto",
+    category: "Naruto",
+    image: "https://ik.imagekit.io/Stick/a6e5ba9d-4abc-41a2-b2de-2d4ece372663.png",
+    thumb: "https://ik.imagekit.io/Stick/a6e5ba9d-4abc-41a2-b2de-2d4ece372663.png"
+  },
+  {
+    title: "Luffy - Gear 5",
+    anime: "One Piece",
+    category: "One Piece",
+    image: "https://ik.imagekit.io/Stick/0cf77b4a-947c-41f0-b195-616d6e1970f2.png",
+    thumb: "https://ik.imagekit.io/Stick/0cf77b4a-947c-41f0-b195-616d6e1970f2.png"
+  },
+  {
+    title: "Madara Uchiha",
+    anime: "Naruto",
+    category: "Naruto",
+    image: "https://ik.imagekit.io/Stick/0904f7a7-a392-45fa-918a-a87005caf0b5.png?updatedAt=1783927781203",
+    thumb: "https://ik.imagekit.io/Stick/0904f7a7-a392-45fa-918a-a87005caf0b5.png?updatedAt=1783927781203"
+  },
+  {
+    title: "Roronoa Zoro",
+    anime: "One Piece",
+    category: "One Piece",
+    image: "https://ik.imagekit.io/Stick/f984ed9a-db24-40b7-8a72-54e8a15d3e82.png?updatedAt=1783927783469",
+    thumb: "https://ik.imagekit.io/Stick/f984ed9a-db24-40b7-8a72-54e8a15d3e82.png?updatedAt=1783927783469"
+  },
+  {
+    title: "Naruto - Nine-Tails Mode",
+    anime: "Naruto",
+    category: "Naruto",
+    image: "https://ik.imagekit.io/Stick/1a8baa59-8e9f-4d47-aa48-2826c58bd9df.png?updatedAt=1783927776800",
+    thumb: "https://ik.imagekit.io/Stick/1a8baa59-8e9f-4d47-aa48-2826c58bd9df.png?updatedAt=1783927776800"
+  },
+  {
+    title: "Sasuke Uchiha",
+    anime: "Naruto",
+    category: "Naruto",
+    image: "https://ik.imagekit.io/Stick/34716e79-ab35-4192-8f1e-658b91da398b.png?updatedAt=1783927772560",
+    thumb: "https://ik.imagekit.io/Stick/34716e79-ab35-4192-8f1e-658b91da398b.png?updatedAt=1783927772560"
+  },
 ];
     
