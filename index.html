@@ -36,9 +36,63 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background:
-      radial-gradient(600px circle at 15% 10%, rgba(123,97,255,0.16), transparent 60%),
-      radial-gradient(500px circle at 85% 30%, rgba(255,77,109,0.14), transparent 60%);
+    overflow: hidden;
+  }
+  .glow::before, .glow::after{
+    content:'';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    filter: blur(90px);
+  }
+  .glow::before{
+    top: -10%; left: -10%;
+    background: rgba(123,97,255,0.16);
+    animation: drift1 22s ease-in-out infinite;
+  }
+  .glow::after{
+    top: 20%; right: -15%;
+    background: rgba(255,77,109,0.14);
+    animation: drift2 26s ease-in-out infinite;
+  }
+  @keyframes drift1{
+    0%, 100%{ transform: translate(0, 0); }
+    50%{ transform: translate(80px, 60px); }
+  }
+  @keyframes drift2{
+    0%, 100%{ transform: translate(0, 0); }
+    50%{ transform: translate(-60px, 90px); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .glow::before, .glow::after{ animation: none; }
+  }
+
+  /* SPLASH INTRO */
+  .splash{
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation: splash-out 1.6s ease forwards;
+  }
+  .splash svg{
+    width: 56px; height:56px;
+    animation: splash-pop 0.7s ease;
+  }
+  @keyframes splash-pop{
+    0%{ transform: scale(0.6); opacity:0; }
+    60%{ transform: scale(1.08); opacity:1; }
+    100%{ transform: scale(1); opacity:1; }
+  }
+  @keyframes splash-out{
+    0%, 55%{ opacity:1; pointer-events:auto; }
+    100%{ opacity:0; pointer-events:none; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .splash{ display:none; }
   }
 
   header{
@@ -327,6 +381,20 @@
 </head>
 <body>
 
+<div class="splash" id="splash">
+  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="splashGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FF4D6D"/>
+        <stop offset="1" stop-color="#7B61FF"/>
+      </linearGradient>
+    </defs>
+    <rect x="8" y="8" width="48" height="48" rx="12" fill="url(#splashGrad)" opacity="0.12"/>
+    <rect x="10" y="10" width="44" height="44" rx="12" fill="none" stroke="url(#splashGrad)" stroke-width="3"/>
+    <circle cx="32" cy="32" r="8" fill="url(#splashGrad)"/>
+  </svg>
+</div>
+
 <div class="glow"></div>
 
 <header>
@@ -438,8 +506,13 @@
 
   renderFilters();
   renderGrid();
+
+  const splash = document.getElementById('splash');
+  if (splash){
+    setTimeout(() => splash.remove(), 1700);
+  }
 </script>
 
 </body>
-  </html>
-    
+      </html>
+  
