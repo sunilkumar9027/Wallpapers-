@@ -276,13 +276,23 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    transition: border-color .2s, background .2s;
+    transition: border-color .2s, background .2s, transform .15s ease;
   }
   .dl-btn:hover{
     border-color: transparent;
     background: linear-gradient(120deg, var(--pink), var(--violet));
   }
-  .dl-btn svg{ width: 15px; height:15px; }
+  .dl-btn:active{
+    transform: scale(0.85);
+  }
+  .dl-btn svg{ width: 15px; height:15px; animation: dl-bounce 1.8s ease-in-out infinite; }
+  @keyframes dl-bounce{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(2px); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .dl-btn svg{ animation: none; }
+  }
 
   .empty{
     text-align:center;
@@ -432,4 +442,4 @@
 
 </body>
   </html>
-      
+    
