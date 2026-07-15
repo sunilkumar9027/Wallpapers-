@@ -379,8 +379,25 @@
   footer{
     position: relative;
     z-index: 2;
-    padding: 5vh 6vw 6vh;
+    padding: 6vh 6vw 6vh;
     border-top: 1px solid var(--line);
+    display:flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .footer-cta{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer-cta p{
+    color: var(--text);
+    font-size: 1rem;
+    max-width: 46ch;
+    line-height: 1.6;
+  }
+  .footer-bottom{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -440,7 +457,7 @@
 <section class="hero">
   <div>
     <h1>Your lock screen, <em>animated</em> right.</h1>
-    <p>True 4K wallpapers pulled from the shows worth staring at. Tap any frame to download the full-resolution file — no compression, no watermark, no signup.</p>
+    <p>Your phone deserves better than a stock wallpaper. Hand-picked 4K anime art, updated weekly, made for screens that actually get looked at all day.</p>
     <div class="hero-tags">
       <span>3840 × 2160</span>
       <span>PNG / JPG</span>
@@ -461,8 +478,14 @@
 <p class="empty" id="emptyState">No wallpapers in this category yet — add some in wallpapers.js</p>
 
 <footer>
-  <span>Lockframe — built for fans, by a fan.</span>
-  <span>Full res, always free.</span>
+  <div class="footer-cta">
+    <p>Enjoying the wallpapers? New drops go up on Instagram first — follow along so you never miss one.</p>
+    <a class="ig-link" href="https://www.instagram.com/sttics_official" target="_blank" rel="noopener">@sttics_official ↗</a>
+  </div>
+  <div class="footer-bottom">
+    <span>Lockframe — built for fans, by a fan.</span>
+    <span>Full res, always free.</span>
+  </div>
 </footer>
 
 <script src="wallpapers.js"></script>
@@ -550,4 +573,5 @@
 
 </body>
   </html>
+  
   
