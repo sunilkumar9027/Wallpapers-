@@ -94,6 +94,25 @@
   @media (prefers-reduced-motion: reduce){
     .splash{ display:none; }
   }
+  .particle{
+    position: absolute;
+    top: 50%; left: 50%;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: linear-gradient(120deg, var(--pink), var(--violet));
+    opacity: 0;
+    animation: particle-burst 1.3s ease-out forwards;
+    animation-delay: var(--delay);
+  }
+  @keyframes particle-burst{
+    0%{ opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+    15%{ opacity: 1; }
+    100%{ opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .particle{ display:none; }
+  }
 
   header{
     position: relative;
@@ -509,6 +528,22 @@
 
   const splash = document.getElementById('splash');
   if (splash){
+    const particleCount = 36;
+    for (let i = 0; i < particleCount; i++){
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 200 + Math.random() * 500;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      const size = 3 + Math.random() * 6;
+      const delay = Math.random() * 0.3;
+      p.style.setProperty('--tx', `${tx}px`);
+      p.style.setProperty('--ty', `${ty}px`);
+      p.style.setProperty('--size', `${size}px`);
+      p.style.setProperty('--delay', `${delay}s`);
+      splash.appendChild(p);
+    }
     setTimeout(() => splash.remove(), 3300);
   }
 </script>
